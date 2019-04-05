@@ -2,8 +2,23 @@ import React, { Component } from 'react';
 import './App.css';
 import AddProduct from './AddProduct';
 import ProductItem from './ProductItem';
+import S3FileUpload from 'react-s3';
+//Optional Import
+import { uploadFile } from 'react-s3';
+ 
+const config = {
+    bucketName: 'povilas-react-product-manager',
+    //dirName: 'photos', /* optional */
+    region: 'eu-east-1', 
+  //  accessKeyId: 'ANEIFNENI4324N2NIEXAMPLE',
+   // secretAccessKey: 'cms21uMxçduyUxYjeg20+DEkgDxe6veFosBT7eUgEXAMPLE',
+}
 
 const products = [
+  {
+    name: 'Nokia/Mobira Cityman 1320',
+    price: 999
+  },
   {
     name: 'Nokia 3310',
     price: 200
@@ -75,7 +90,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Products Manager (Povilas CRUD app, LocalStorage)</h1>
+        <h1>Products Manager (Povilas CRUD app, ReactJs, LocalStorage)</h1>
 
         <AddProduct
           onAdd={this.onAdd}
